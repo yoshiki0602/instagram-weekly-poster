@@ -1,30 +1,30 @@
 {
   "mon": {
-    "image": "mon.jpg",
+    "images": ["mon.jpg"],
     "caption": "月曜日の投稿キャプションをここに書く #タグ"
   },
   "tue": {
-    "image": "tue.jpg",
+    "images": ["tue.jpg"],
     "caption": "火曜日の投稿キャプションをここに書く #タグ"
   },
   "wed": {
-    "image": "wed.jpg",
+    "images": ["wed.jpg"],
     "caption": "水曜日の投稿キャプションをここに書く #タグ"
   },
   "thu": {
-    "image": "thu.jpg",
+    "images": ["thu.jpg"],
     "caption": "木曜日の投稿キャプションをここに書く #タグ"
   },
   "fri": {
-    "image": "fri.jpg",
+    "images": ["fri.jpg"],
     "caption": "金曜日の投稿キャプションをここに書く #タグ"
   },
   "sat": {
-    "image": "sat.jpg",
+    "images": ["sat.jpg"],
     "caption": "土曜日の投稿キャプションをここに書く #タグ"
   },
   "sun": {
-    "image": "sun.jpg",
+    "images": ["sun.jpg"],
     "caption": "日曜日の投稿キャプションをここに書く #タグ"
   }
 }
