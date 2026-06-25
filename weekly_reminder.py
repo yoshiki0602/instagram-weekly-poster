@@ -29,10 +29,21 @@ def main() -> None:
 
     for day_key, label in DAY_LABELS_JP_ORDER:
         entry = schedule.get(day_key)
-        if entry and entry.get("image"):
+        video = (entry or {}).get("video", "").strip() if entry else ""
+        images = []
+        if entry and not video:
+            images = entry.get("images") or ([entry["image"]] if entry.get("image") else [])
+
+        if entry and video:
             caption = entry.get("caption", "")
             caption_preview = caption if len(caption) <= 40 else caption[:40] + "..."
-            lines.append(f"■ {label}: {entry['image']}")
+            lines.append(f"■ {label}: {video} (リール)")
+            lines.append(f"   キャプション: {caption_preview}")
+        elif entry and images:
+            caption = entry.get("caption", "")
+            caption_preview = caption if len(caption) <= 40 else caption[:40] + "..."
+            kind = f"カルーセル{len(images)}枚" if len(images) > 1 else "画像1枚"
+            lines.append(f"■ {label}: {', '.join(images)} ({kind})")
             lines.append(f"   キャプション: {caption_preview}")
         else:
             lines.append(f"■ {label}: (未登録)")
