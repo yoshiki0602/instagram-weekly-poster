@@ -71,9 +71,9 @@ def post_images(account_id: str, access_token: str, image_urls: list, caption: s
 
     child_ids = []
     for url in image_urls:
-        child_id = create_media_container(base, access_token, url, is_carousel_item=True)
-        child_ids.append(child_id)
-        time.sleep(1)
+       child_id = create_media_container(base, access_token, url, is_carousel_item=True)
+    wait_for_video_ready(base, access_token, child_id)
+    child_ids.append(child_id)
 
     parent_res = requests.post(
         f"{base}/media",
@@ -87,7 +87,9 @@ def post_images(account_id: str, access_token: str, image_urls: list, caption: s
     )
     parent_res.raise_for_status()
     parent_id = parent_res.json()["id"]
+     wait_for_video_ready(base, access_token, parent_id)
     return publish_container(base, access_token, parent_id)
+ 
 
 
 def wait_for_video_ready(base: str, access_token: str, creation_id: str,
